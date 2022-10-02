@@ -12,7 +12,6 @@
     margin-left: 10px;
     object-fit: cover;
     align-self: center;
-    cursor: pointer;
 }
 
 .profile__profile-info_edit-button:hover {
