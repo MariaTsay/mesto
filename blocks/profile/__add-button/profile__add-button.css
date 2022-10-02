@@ -5,7 +5,7 @@
     box-sizing: border-box;
     margin-top: 36px;
     cursor: pointer;
-    background: url(/images/profile__add-button.png);
+    background: url(../../../images/profile__add-button.png);
     border: 2px solid #FFFFFF;
 }
 
@@ -17,6 +17,6 @@
     .profile__add-button {
         width: 150px;
         margin-top: 0;
-        background: url(/images/profile__add-button_s.png);
+        background: url(../../../images/profile__add-button_s.png);
     }
 }
