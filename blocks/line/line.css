@@ -1,0 +1,17 @@
+.line {
+    max-width: 100%;
+    opacity: 0.2;
+    border: 1px solid #000000;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+}
+
+.line:last-of-type {
+    margin-bottom: 45px;
+}
+
+@media screen and (min-width: 768px) {
+    .line:last-of-type {
+        margin-bottom: 48px;
+    }
+}

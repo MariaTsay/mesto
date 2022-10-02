@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Место</title>
+
+    <link rel="stylesheet" href="./pages/index.css">
+    <script defer src="./scripts/script.js"></script>
+</head>
+
+<body class="body">
+    <div class="page">
+        <header class="header">
+            <img class="header__logo" src="./images/header__logo.svg" alt="лого Место" />
+            <img class="header__line" src="./images/header__line.png" alt="линия" />
+        </header>
+
+        <main class="content">
+            <section class="profile">
+                <img class="profile__avatar" src="./images/profile__avatar.png" alt="аватар Жак-Ив Кусто" />
+                <div class="profile__profile-info">
+                    <div class="profile__profile-info_container">
+                        <h1 class="profile__profile-info_title" id="profile-name" value="name">Жак-Ив Кусто</h1>
+                        <button class="profile__profile-info_edit-button"></button>
+                    </div>
+                    <p class="profile__profile-info_subtitle" id="profile-job" value="job">Исследователь океана</p>
+                </div>
+                <button class="profile__add-button"></button>
+            </section>
+
+            <ul class="places">
+                <li class="places__item">
+                    <img class="places__image" src="./images/places__CayoSombrero.jpg" alt="Кайо Сомбреро" />
+                    <div class="places__text-content">
+                        <h2 class="places__title">о.Кайо Сомбреро, Венесуэла</h2>
+                        <button class="places__like"></button>
+                    </div>
+                </li>
+
+                <li class="places__item">
+                    <img class="places__image" src="./images/places__CostaRica.jpg" alt="Коста-Рика" />
+                    <div class="places__text-content">
+                        <h2 class="places__title">Коста-Рика</h2>
+                        <button class="places__like"></button>
+                    </div>
+                </li>
+
+                <li class="places__item">
+                    <img class="places__image" src="./images/places__bali.jpg" alt="Бали" />
+                    <div class="places__text-content">
+                        <h2 class="places__title">Бали</h2>
+                        <button class="places__like"></button>
+                    </div>
+                </li>
+
+                <li class="places__item">
+                    <img class="places__image" src="./images/places__krabi.jpg" alt="Краби" />
+                    <div class="places__text-content">
+                        <h2 class="places__title">Краби, Таиланд</h2>
+                        <button class="places__like"></button>
+                    </div>
+                </li>
+
+                <li class="places__item">
+                    <img class="places__image" src="./images/places__LampuukBeach.jpg" alt="пляж Лампуук" />
+                    <div class="places__text-content">
+                        <h2 class="places__title">пляж Лампуук, Индонезия</h2>
+                        <button class="places__like"></button>
+                    </div>
+                </li>
+
+                <li class="places__item">
+                    <img class="places__image" src="./images/places__maldives.jpg" alt="Мальдивы" />
+                    <div class="places__text-content">
+                        <h2 class="places__title">Мальдивы</h2>
+                        <button class="places__like"></button>
+                    </div>
+                </li>
+            </ul>
+        </main>
+        <footer class="footer">
+            <p class="footer__copyright">&copy; 2022 Мария Цай</p>
+        </footer>
+    </div>
+
+
+    <section class="popup">
+        <div class="popup__container">
+            <div class="popup__form">
+                <div class="popup__close"></div>
+                <h2 class="popup__title">Редактировать профиль</h2>
+                <input class="popup__text popup__text_name" type="text" name="name">
+                <div class="line"></div>
+                <input class="popup__text popup__text_about" type="text" name="job">
+                <div class="line"></div>
+                <button class="popup__submit-btn popup__submit-btn_action_submit" type="button">Сохранить</button>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
