@@ -7,6 +7,7 @@
     text-align: center;
     color: #FFFFFF;
     margin: 0;
+    max-width: 189px;
 }
 
 @media screen and (min-width: 768px) {
@@ -14,6 +15,7 @@
         font-size: 30px;
         line-height: 36px;
         text-align: start;
+        max-width: 210px;
     }
 }
 
@@ -22,5 +24,6 @@
         font-size: 42px;
         line-height: 48px;
         text-align: start;
+        max-width: 294px;
     }
 }
