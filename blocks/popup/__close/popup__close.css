@@ -2,7 +2,7 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background-image: url(/images/popup__close.png);
+    background-image: url(../../../images/popup__close.png);
     background-repeat: no-repeat;
     top: -32px;
     right: 0;
@@ -17,7 +17,7 @@
     .popup__close {
         width: 32px;
         height: 32px;
-        background-image: url(/images/popup__close_l.png);
+        background-image: url(../../../images/popup__close_l.png);
         top: -38px;
         right: -40px;
     }
