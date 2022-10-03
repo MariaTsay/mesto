@@ -9,7 +9,7 @@
     .profile__profile-info {
         padding: 0;
         margin: 0;
-        margin-right: 20px;
+        margin-right: auto;
         text-align: start;
         max-width: 270px;
     }
@@ -18,8 +18,6 @@
 @media screen and (min-width: 1024px) {
     .profile__profile-info {
         padding: 0;
-        margin: 0;
-        margin-right: 234px;
         text-align: start;
         max-width: 346px;
     }
