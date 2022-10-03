@@ -5,8 +5,11 @@
     box-sizing: border-box;
     margin-top: 36px;
     cursor: pointer;
-    background: url(../../../images/profile__add-button.png);
+    background: url(../../../images/profile_add-button.svg);
     border: 2px solid #FFFFFF;
+    border-radius: 2px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .profile__add-button:hover {
@@ -15,8 +18,7 @@
 
 @media screen and (min-width: 768px) {
     .profile__add-button {
-        width: 150px;
         margin-top: 0;
-        background: url(../../../images/profile__add-button_s.png);
+        width: 150px;
     }
 }

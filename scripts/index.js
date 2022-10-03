@@ -1,39 +1,52 @@
 const POPUP_OPENED_CLASS = 'popup_opened';
 
-let openEditBtn = document.querySelector('.profile__profile-info_edit-button');
+
 let popup = document.querySelector('.popup');
 let popupForm = popup.querySelector('.popup__form');
+let openEditBtn = document.querySelector('.profile__profile-info-edit-button');
 let popupCloseBtn = popup.querySelector('.popup__close');
-
+let popupSubmitBtn = popupForm.querySelector('.popup__submit-btn');
+let nameInput = popup.querySelector('.popup__text_type_name');
+let jobInput = popup.querySelector('.popup__text_type_about');
 let profileName = document.getElementById('profile-name');
-let nameInput = popup.querySelector('.popup__text_name');
 nameInput.value = profileName.textContent;
 let profileJob = document.getElementById('profile-job');
-let jobInput = popup.querySelector('.popup__text_about');
 jobInput.value = profileJob.textContent;
 
-let popupSubmitBtn = popupForm.querySelector('.popup__submit-btn_action_submit');
 
-openEditBtn.addEventListener('click', () => {
+function openPopup() {
     popup.classList.add(POPUP_OPENED_CLASS);
-});
+}
 
-popup.addEventListener('click', (event) => {
+openEditBtn.addEventListener('click', openPopup);
+
+
+function closePopup(event) {
     if (!popupForm.contains(event.target) || event.target === popupCloseBtn) {
         popup.classList.remove(POPUP_OPENED_CLASS);
     }
-});
+}
 
-popupForm.addEventListener('submit', () => {
-    nameInput.value = profileName.textContent;
-    jobInput.value = profileJob.textContent;
-})
+popup.addEventListener('click', closePopup);
 
-popupSubmitBtn.addEventListener('click', () => {
-    if (profileName.textContent = nameInput.value) {
-        popup.classList.remove(POPUP_OPENED_CLASS);
-    }
-    if (profileJob.textContent = jobInput.value) {
-        popup.classList.remove(POPUP_OPENED_CLASS);
-    }
-})
+
+function popupSubmitHandler(event) {
+    event.preventDefault();
+    profileName.textContent = nameInput.value;
+    profileJob.textContent = jobInput.value;
+    popup.classList.remove(POPUP_OPENED_CLASS);
+}
+
+popupForm.addEventListener('submit', popupSubmitHandler);
+
+function consoleKitten() {
+    let a = '  Λ _ Λ';
+    let b = ' (=චᆽච=)==∫';
+    let c = '   ˉ ˉ   ˉ ˉ';
+  
+    console.log(a); 
+    console.log(b); 
+    console.log(c);
+  } 
+  
+  consoleKitten();

@@ -1,4 +1,4 @@
-.profile__profile-info_subtitle {
+.profile__profile-info-subtitle {
     font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 400;
@@ -12,7 +12,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .profile__profile-info_subtitle {
+    .profile__profile-info-subtitle {
         font-size: 16px;
         line-height: 19px;
         text-align: start;
@@ -22,7 +22,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .profile__profile-info_subtitle {
+    .profile__profile-info-subtitle {
         font-size: 18px;
         line-height: 22px;
         text-align: start;

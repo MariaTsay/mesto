@@ -1,5 +1,5 @@
-.profile__profile-info_edit-button {
-    background: url(../../../../images/profile-info__editButton.png);
+.profile__profile-info-edit-button {
+    background: url(../../../images/profile-info_EditButton.svg);
     background-repeat: no-repeat;
     width: 18px;
     height: 18px;
@@ -14,13 +14,13 @@
     align-self: center;
 }
 
-.profile__profile-info_edit-button:hover {
+.profile__profile-info-edit-button:hover {
     opacity: 0.6;
 }
 
 @media screen and (min-width: 768px) {
-    .profile__profile-info_edit-button {
-        background: url(../../../../images/profile-info__editButton_l.png);
+    .profile__profile-info-edit-button {
+        background-size: 24px 24px;
         width: 24px;
         height: 24px;
         margin-left: 18px;

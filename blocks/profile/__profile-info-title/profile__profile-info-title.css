@@ -1,4 +1,4 @@
-.profile__profile-info_title {
+.profile__profile-info-title {
     font-family: 'Inter', 'Arial', sans-serif;
     font-style: normal;
     font-weight: 500;
@@ -11,7 +11,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .profile__profile-info_title {
+    .profile__profile-info-title {
         font-size: 30px;
         line-height: 36px;
         text-align: start;
@@ -20,7 +20,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .profile__profile-info_title {
+    .profile__profile-info-title {
         font-size: 42px;
         line-height: 48px;
         text-align: start;

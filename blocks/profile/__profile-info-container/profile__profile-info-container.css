@@ -1,4 +1,4 @@
-.profile__profile-info_container {
+.profile__profile-info-container {
     display: flex;
     width: 100%;
     justify-content: center;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .profile__profile-info_container {
+    .profile__profile-info-container {
         justify-content: flex-start;
     }
 }
