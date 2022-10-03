@@ -39,14 +39,3 @@ function popupSubmitHandler(event) {
 
 popupForm.addEventListener('submit', popupSubmitHandler);
 
-function consoleKitten() {
-    let a = '  Λ _ Λ';
-    let b = ' (=චᆽච=)==∫';
-    let c = '   ˉ ˉ   ˉ ˉ';
-  
-    console.log(a); 
-    console.log(b); 
-    console.log(c);
-  } 
-  
-  consoleKitten();
