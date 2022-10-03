@@ -8,7 +8,7 @@
     color: #FFFFFF;
     margin: 0;
     margin-top: 10px;
-    max-width: 282px;
+    max-width: 100%;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -20,7 +20,6 @@
         line-height: 19px;
         text-align: start;
         margin-top: 16px;
-        max-width: 336px;
     }
 }
 
@@ -28,8 +27,5 @@
     .profile__profile-info-subtitle {
         font-size: 18px;
         line-height: 22px;
-        text-align: start;
-        margin-top: 16px;
-        max-width: 336px;
     }
 }
