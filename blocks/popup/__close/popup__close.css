@@ -4,8 +4,8 @@
     height: 20px;
     background-image: url(../../../images/popup_close.svg);
     background-repeat: no-repeat;
-    top: -32px;
-    right: 0;
+    top: 105px;
+    right: 20px;
     cursor: pointer;
     border: 0;
     padding: 0;
@@ -22,7 +22,7 @@
         background-size: 32px 32px;
         width: 32px;
         height: 32px;
-        top: -38px;
-        right: -40px;
+        top: 152px;
+        right: 382px;
     }
 }
