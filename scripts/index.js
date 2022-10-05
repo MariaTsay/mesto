@@ -11,7 +11,6 @@ let profileName = document.getElementById('profile-name');
 let profileJob = document.getElementById('profile-job');
 
 function openPopup() {
-
     nameInput.value = profileName.textContent.trim();
     jobInput.value = profileJob.textContent.trim();
     popup.classList.add(POPUP_OPENED_CLASS);
