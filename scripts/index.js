@@ -141,8 +141,7 @@ addPopup.addEventListener('click', (event) => closePopup(event, addPopup));
 photoPopup.addEventListener('click', (event) => closePopup(event, photoPopup));
 
 
-
-
+//подтверждение редактирования профиля//
 function editPopupSubmitHandler(evt) {
   evt.preventDefault();
 
@@ -154,34 +153,32 @@ function editPopupSubmitHandler(evt) {
 }
 popupForm.addEventListener('submit', editPopupSubmitHandler);
 
+const clearInput = () => {
+  cardNameInput.value = "";
+  cardLinkInput.value = "";
+}
 
-
-function addCardSubmitHandler(evt) {
+//добавление новой карточки//
+const addCardSubmitHandler = (evt) => {
   evt.preventDefault();
-
-  cardNameInput.name = cardElementName.value;
-  cardLinkInput.link = cardElementImg.value;
- 
-  createNewCard(cardNameInput.name, cardLinkInput.link);
-  addCard(cardList, cardElement);
-  closePopup(addPopup);
+  const cardTemplate = document.querySelector('#template-card').content;
+  const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
+  const cardElementName = cardElement.querySelector(".places__title");
+  const cardElementImg = cardElement.querySelector(".places__image");
+  
+  let cardNameInput = document.querySelector('.popup__text_type_place-name').value;
+  let cardLinkInput = document.querySelector('.popup__text_type_place-link').value;   
+  
+  cardNameInput.name = cardElementName;
+  cardNameInput.alt = cardElementImg;
+  cardLinkInput.src = cardElementImg;
+  
+  clearInput();
+  addCard(cardList, createNewCard(cardNameInput, cardLinkInput));
+  let popupForm = popup.querySelector('.popup__form');
+  if (popupForm.contains(evt.target)) {
+    addPopup.classList.remove(POPUP_OPENED_CLASS);
+  }
 }
 
 addNewCardForm.addEventListener('submit', addCardSubmitHandler);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
