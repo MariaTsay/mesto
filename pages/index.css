@@ -21,8 +21,9 @@
 @import url(../blocks/profile/__add-button/profile__add-button.css);
 
 @import url(../blocks/places/places.css);
-@import url(../blocks/places/__wrap/places__wrap.css);
+@import url(../blocks/places/__list/places__list.css);
 @import url(../blocks/places/__item/places__item.css);
+@import url(../blocks/places/__delete/places__delete.css);
 @import url(../blocks/places/__image/places__image.css);
 @import url(../blocks/places/__text-content/places__text-content.css);
 @import url(../blocks/places/__title/places__title.css);

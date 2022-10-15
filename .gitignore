@@ -1,2 +1,9 @@
 .DS_Store
 scripts/script.js
+blocks/places/__wrap/places__wrap.css
+images/places__bali.jpg
+images/places__CayoSombrero.jpg
+images/places__CostaRica.jpg
+images/places__krabi.jpg
+images/places__LampuukBeach.jpg
+.gitignore

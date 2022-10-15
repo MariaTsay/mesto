@@ -1,4 +1,4 @@
-.places__wrap {
+.places__list {
     display: grid;
     grid-template-columns: 100%;
     list-style-type: none;
@@ -9,7 +9,7 @@
 }
 
 @media screen and (min-width: 768px) {
-    .places__wrap {
+    .places__list {
         max-width: 580px;
         grid-template-columns: repeat(2, 1fr);
         gap: 18px 16px;
@@ -17,7 +17,7 @@
 }
 
 @media screen and (min-width: 1024px) {
-    .places__wrap {
+    .places__list {
         max-width: 880px;
         grid-template-columns: repeat(3, 1fr);
         gap: 20px 17px;

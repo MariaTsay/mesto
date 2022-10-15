@@ -31,54 +31,8 @@
             </section>
 
             <section class="places">
-                <ul class="places__wrap">
-                    <li class="places__item">
-                        <img class="places__image" src="./images/places__CayoSombrero.jpg" alt="Кайо Сомбреро" />
-                        <div class="places__text-content">
-                            <h2 class="places__title">о.Кайо Сомбреро, Венесуэла</h2>
-                            <button class="places__like" type="button"></button>
-                        </div>
-                    </li>
+                <ul class="places__list">
 
-                    <li class="places__item">
-                        <img class="places__image" src="./images/places__CostaRica.jpg" alt="Коста-Рика" />
-                        <div class="places__text-content">
-                            <h2 class="places__title">Коста-Рика</h2>
-                            <button class="places__like" type="button"></button>
-                        </div>
-                    </li>
-
-                    <li class="places__item">
-                        <img class="places__image" src="./images/places__bali.jpg" alt="Бали" />
-                        <div class="places__text-content">
-                            <h2 class="places__title">Бали</h2>
-                            <button class="places__like" type="button"></button>
-                        </div>
-                    </li>
-
-                    <li class="places__item">
-                        <img class="places__image" src="./images/places__krabi.jpg" alt="Краби" />
-                        <div class="places__text-content">
-                            <h2 class="places__title">Краби, Таиланд</h2>
-                            <button class="places__like" type="button"></button>
-                        </div>
-                    </li>
-
-                    <li class="places__item">
-                        <img class="places__image" src="./images/places__LampuukBeach.jpg" alt="пляж Лампуук" />
-                        <div class="places__text-content">
-                            <h2 class="places__title">пляж Лампуук, Индонезия</h2>
-                            <button class="places__like" type="button"></button>
-                        </div>
-                    </li>
-
-                    <li class="places__item">
-                        <img class="places__image" src="./images/places__maldives.jpg" alt="Мальдивы" />
-                        <div class="places__text-content">
-                            <h2 class="places__title">Мальдивы</h2>
-                            <button class="places__like" type="button"></button>
-                        </div>
-                    </li>
                 </ul>
             </section>
         </main>
@@ -87,11 +41,21 @@
         </footer>
     </div>
 
+    <template id="template-card">
+        <li class="places__item">
+            <button class="places__delete" type="button"></button>
+            <img class="places__image" id="place-link" src="https://i.pinimg.com/736x/49/81/06/498106c4713ad630d18e3885ca397bca.jpg" alt="Кайо Сомбреро" />
+            <div class="places__text-content">
+                <h2 class="places__title" id="place-name">о.Кайо Сомбреро, Венесуэла</h2>
+                <button class="places__like" type="button"></button>
+            </div>
+        </li>
+    </template>
 
-    <section class="popup">
+    <section class="popup popup_type_edit">
         <div class="popup__container">
-            <button class="popup__close" type="button"></button>
-            <form class="popup__form" name="form">
+            <button class="popup__close" type="button" id="edit-close"></button>
+            <form class="popup__form" name="form" id="edit-form">
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <input class="popup__text popup__text_type_name" type="text" name="name">
                 <input class="popup__text popup__text_type_about" type="text" name="job">
@@ -99,6 +63,29 @@
             </form>
         </div>
     </section>
+
+    <section class="popup popup_type_add">
+        <div class="popup__container">
+            <button class="popup__close" type="button" id="add-close"></button>
+            <form class="popup__form" name="form" id="add-form">
+                <h2 class="popup__title">Новое место</h2>
+                <input class="popup__text popup__text_type_place-name" type="text" name="name" placeholder="Название">
+                <input class="popup__text popup__text_type_place-link" type="url" name="link" placeholder="Ссылка на картинку">
+                <button class="popup__submit-btn" type="submit">Создать</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="popup popup_type_photo">
+        <div class="popup__container">
+            <button class="popup__close" type="button" id="add-close"></button>
+            <div class="popup__fullscreen-photo">
+                <img class="popup__image" src="https://i.pinimg.com/736x/49/81/06/498106c4713ad630d18e3885ca397bca.jpg" alt="о.Кайо Сомбреро, Венесуэла" />
+                <p class="popup__description"></p>
+            </div>
+        </div>
+    </section>
+
     <script defer src="./scripts/index.js"></script>
 </body>
 
