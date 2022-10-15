@@ -129,8 +129,8 @@ addBtn.addEventListener('click', openAddPopup);
 
 //закрытие попапа(любого)//
 function closePopup(event, popup) {
-  let popupForm = document.querySelector('.popup__form');
-  let popupCloseBtn = document.querySelector('.popup__close');
+  let popupForm = popup.querySelector('.popup__form');
+  let popupCloseBtn = popup.querySelector('.popup__close');
     if (!popupForm.contains(event.target) || event.target === popupCloseBtn) {
       popup.classList.remove(POPUP_OPENED_CLASS);
     }
