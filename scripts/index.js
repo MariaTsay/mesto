@@ -7,9 +7,9 @@ let popupCloseBtn = Array.from(document.querySelectorAll('.popup__close'));
 //переменные для редактирования профиля//
 let editProfilePopup = document.querySelector('.popup_type_edit');
 let popupEditForm = document.querySelector('#edit-form');
-let editProfileBtn = document.querySelector('.profile__profile-info-edit-button');
-let popupEditCloseBtn = document.querySelector('#edit-close');
-let popupSubmitBtn = popupForm.querySelector('.popup__submit-btn');
+const editProfileBtn = document.querySelector('.profile__profile-info-edit-button');
+const popupEditCloseBtn = document.querySelector('#edit-close');
+const popupSubmitBtn = popupForm.querySelector('.popup__submit-btn');
 let nameInput = document.querySelector('.popup__text_type_name');
 let jobInput = document.querySelector('.popup__text_type_about');
 let profileName = document.getElementById('profile-name');
