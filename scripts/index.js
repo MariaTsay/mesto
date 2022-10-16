@@ -1,5 +1,3 @@
-console.log('test');
-
 const POPUP_OPENED_CLASS = 'popup_opened';
 
 let popup = document.querySelectorAll('.popup');
