@@ -69,7 +69,7 @@ const initialCards = [
 const createNewCard = (name, link) => {
   const cardTemplate = document.querySelector('#template-card').content;
   const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
-  
+
   const cardElementName = cardElement.querySelector(".places__title");
   const cardElementImg = cardElement.querySelector(".places__image");
   const deleteBtn = cardElement.querySelector(".places__delete");
@@ -79,11 +79,11 @@ const createNewCard = (name, link) => {
   cardElementImg.alt = name;
 
   cardElementName.textContent = name;
- 
+
   deleteBtn.addEventListener("click", () => removeCard(cardElement));
   likeBtn.addEventListener("click", () => likeCard(likeBtn));
 
- 
+
   cardElementImg.addEventListener('click', () => {
     popupFullscreenImg.setAttribute('src', link);
     popupFullscrImgCaption.setAttribute('alt', name);
@@ -91,22 +91,22 @@ const createNewCard = (name, link) => {
 
     photoPopup.classList.add(POPUP_OPENED_CLASS);
   });
-  
-  return(cardElement);
+
+  return (cardElement);
 };
 
 //добавление карточки//
-function addCard (cardList, cardElement) {
+function addCard(cardList, cardElement) {
   cardList.prepend(cardElement);
 };
 
 //удаление карточки//
-function removeCard (cardElement) {
+function removeCard(cardElement) {
   cardElement.remove();
 };
 
 //лайк-анлайк//
-function likeCard (cardElement) {
+function likeCard(cardElement) {
   cardElement.classList.toggle('places__like_active');
 };
 
@@ -130,9 +130,9 @@ function openAddPopup() {
 //закрытие попапа(любого)//
 function closePopup(evt) {
   const popupCloseBtn = evt.target.closest('.popup');
-    if (!popupForm.contains(evt.target) || evt.target === popupCloseBtn) {
-      popupCloseBtn.classList.remove(POPUP_OPENED_CLASS);
-    }
+  if (!popupForm.contains(evt.target) || evt.target === popupCloseBtn) {
+    popupCloseBtn.classList.remove(POPUP_OPENED_CLASS);
+  }
 }
 
 //подтверждение редактирования профиля//
@@ -158,15 +158,15 @@ const addCardSubmitHandler = (evt) => {
   const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
   const cardElementName = cardElement.querySelector(".places__title");
   const cardElementImg = cardElement.querySelector(".places__image");
-  
+
   let cardNameInput = document.querySelector('.popup__text_type_place-name').value;
-  let cardLinkInput = document.querySelector('.popup__text_type_place-link').value;   
-  
+  let cardLinkInput = document.querySelector('.popup__text_type_place-link').value;
+
   cardNameInput.name = cardElementName;
   cardNameInput.alt = cardElementImg;
   cardLinkInput.src = cardElementImg;
-  
-  
+
+
   addCard(cardList, createNewCard(cardNameInput, cardLinkInput));
   closePopup(evt);
   clearInput();
