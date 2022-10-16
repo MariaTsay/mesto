@@ -2,18 +2,12 @@
     max-width: 100%;
     margin: 0 auto;
     vertical-align: top;
+    margin-bottom: 10px;
+    padding: 0;
 }
 
 @media screen and (min-width: 768px) {
     .popup__fullscreen-image {
-        max-width: 700px;
         max-height: 540px;
-
-    }
-}
-
-@media screen and (min-width: 1024px) {
-    .popup__fullscreen-image {
-        max-width: 820px;
     }
 }

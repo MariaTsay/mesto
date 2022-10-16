@@ -67,7 +67,7 @@ const initialCards = [
   }
 ];
 
-
+//создание новой карточки и все деньствия с ней//
 const createNewCard = (name, link) => {
   const cardTemplate = document.querySelector('#template-card').content;
   const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
@@ -87,11 +87,9 @@ const createNewCard = (name, link) => {
 
  
   cardElementImg.addEventListener('click', () => {
-    popupFullscreenImg.setAttribute('scr', cardElementImg);
-    popupFullscrImgCaption.setAttribute('alt', cardElementName);
-    popupFullscrImgCaption.textContent = cardElementName;
-
-    
+    popupFullscreenImg.setAttribute('src', link);
+    popupFullscrImgCaption.setAttribute('alt', name);
+    popupFullscrImgCaption.textContent = name;
 
     photoPopup.classList.add(POPUP_OPENED_CLASS);
   });
@@ -130,13 +128,6 @@ function openEditProfilePopup() {
 function openAddPopup() {
   addPopup.classList.add(POPUP_OPENED_CLASS);
 }
-
-//открытие фото//
-function openPhotoPopup() {
-console.log('работает');
-}
-
-cardElementImg.addEventListener('click', openPhotoPopup);
 
 //закрытие попапа(любого)//
 function closePopup(evt) {
