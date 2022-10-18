@@ -152,7 +152,7 @@ const addCardSubmitHandler = (evt) => {
   evt.target.reset();
 }
 
-//навешивание слушаьтелей на кнопки//
+//навешивание слушателей на кнопки//
 editProfileBtn.addEventListener('click', () => openEditProfilePopup(editProfilePopup))
 addBtn.addEventListener('click', () => openPopup(addPopup));
 
