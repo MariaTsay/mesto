@@ -1,8 +1,6 @@
 const POPUP_OPENED_CLASS = 'popup_opened';
 
 const popups = document.querySelectorAll('.popup');
-//это общая форма (по разделам указаны ниже)//
-const popupForm = document.querySelector('.popup__form');
 const popupCloseBtns = document.querySelectorAll('.popup__close');
 
 //переменные для редактирования профиля//
@@ -85,7 +83,7 @@ const createNewCard = (name, link) => {
     popupFullscreenImg.setAttribute('alt', name);
     popupFullscrImgCaption.textContent = name;
 
-    closePopup(addPopup);
+    openPopup(photoPopup);
   });
 
   return (cardElement);
