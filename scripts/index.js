@@ -8,7 +8,6 @@ const editProfilePopup = document.querySelector('.popup_type_edit');
 const editProfileForm = document.forms ['edit-profile'];
 const editProfileBtn = document.querySelector('.profile__profile-info-edit-button');
 const popupEditCloseBtn = document.querySelector('#edit-close');
-
 const nameInput = document.querySelector('.popup__text_type_name');
 const jobInput = document.querySelector('.popup__text_type_about');
 const profileName = document.getElementById('profile-name');
