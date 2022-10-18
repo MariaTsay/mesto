@@ -19,7 +19,6 @@ const addPopup = document.querySelector('.popup_type_add');
 const addNewCardForm = document.forms ['add-place'];
 const addBtn = document.querySelector('.profile__add-button');
 const popupAddCloseBtn = document.querySelector('#edit-close');
-
 const cardNameInput = document.querySelector('.popup__text_type_place-name');
 const cardLinkInput = document.querySelector('.popup__text_type_place-link');
 const cardList = document.querySelector('.places__list');
@@ -59,7 +58,7 @@ const initialCards = [
   }
 ];
 
-//создание новой карточки и все деньствия с ней//
+//создание новой карточки и все действия с ней//
 const createNewCard = (name, link) => {
   const cardTemplate = document.querySelector('#template-card').content;
   const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
