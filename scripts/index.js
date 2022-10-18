@@ -85,7 +85,7 @@ const createNewCard = (name, link) => {
     popupFullscreenImg.setAttribute('alt', name);
     popupFullscrImgCaption.textContent = name;
 
-    photoPopup.classList.add(POPUP_OPENED_CLASS);
+    closePopup(addPopup);
   });
 
   return (cardElement);
@@ -120,7 +120,7 @@ function openPopup(popup) {
 function openEditProfilePopup() {
   nameInput.value = profileName.textContent.trim();
   jobInput.value = profileJob.textContent.trim();
-  editProfilePopup.classList.add(POPUP_OPENED_CLASS);
+  openPopup(editProfilePopup);
 }
 
 //закрытие попапа(любого)//
@@ -134,9 +134,7 @@ function editPopupSubmitHandler(evt) {
 
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  if (popupForm.contains(evt.target)) {
-    editProfilePopup.classList.remove(POPUP_OPENED_CLASS);
-  }
+  closePopup(editProfilePopup);
 }
 
 const clearInput = () => {
@@ -149,7 +147,6 @@ const addCardSubmitHandler = (evt) => {
   const newCardName = cardNameInput.value;
   const newCardLink = cardLinkInput.value;
   
-  createNewCard(newCardName, newCardLink)
   addCard(cardList, createNewCard(newCardName, newCardLink));
   closePopup(addPopup);
   evt.target.reset();
@@ -164,5 +161,5 @@ popupCloseBtns.forEach((button) => {
   button.addEventListener('click', () => closePopup(popup));
 });
 
-popupForm.addEventListener('submit', editPopupSubmitHandler);
+editProfileForm.addEventListener('submit', editPopupSubmitHandler);
 addNewCardForm.addEventListener('submit', addCardSubmitHandler);
