@@ -2,6 +2,7 @@ const POPUP_OPENED_CLASS = 'popup_opened';
 
 const popups = document.querySelectorAll('.popup');
 const popupCloseBtns = document.querySelectorAll('.popup__close');
+const popupForm = document.querySelector('.popup__form');
 
 //переменные для редактирования профиля//
 const editProfilePopup = document.querySelector('.popup_type_edit');
@@ -154,7 +155,7 @@ addBtn.addEventListener('click', () => openPopup(addPopup));
 
 popupCloseBtns.forEach((button) => {
   const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup));
+  button.addEventListener('click', () => closePopup(popup)); 
 });
 
 editProfileForm.addEventListener('submit', editPopupSubmitHandler);
