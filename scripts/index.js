@@ -88,44 +88,67 @@ const createNewCard = (name, link) => {
   return (cardElement);
 };
 
-//добавление карточки//
+//добавление карточки
 function addCard(cardList, cardElement) {
   cardList.prepend(cardElement);
 };
 
-//удаление карточки//
+//удаление карточки
 function removeCard(cardElement) {
   cardElement.remove();
 };
 
-//лайк-анлайк//
+//лайк-анлайк
 function likeCard(cardElement) {
   cardElement.classList.toggle('places__like_active');
 };
 
-//перебор массива с карточками//
+//перебор массива с карточками
 initialCards.forEach((cardElement) =>
   addCard(cardList, createNewCard(cardElement.name, cardElement.link))
 );
 
-//открытие любого попапа//
+//открытие любого попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
-//открытие формы редактирования//
+//открытие формы редактирования
 function openEditProfilePopup() {
   nameInput.value = profileName.textContent.trim();
   jobInput.value = profileJob.textContent.trim();
   openPopup(editProfilePopup);
 }
 
-//закрытие попапа(любого)//
+//закрытие попапа(любого)
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
 }
 
-//подтверждение редактирования профиля//
+popupCloseBtns.forEach((button) => {
+  const popupCloseBtn = button.closest('.popup');
+  button.addEventListener('click', () => closePopup(popupCloseBtn)); 
+});
+
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => closePopup(evt.target));
+})
+
+//закрытие по esc
+function keyHandler(evt){
+  if (evt.key === 'Escape') {
+    closePopup(document.querySelector('.popup_opened'));
+ };
+}
+
+function overlayHandler(evt){
+  if (evt.target === '.popup') {
+    document.querySelector('.popup_opened');
+ };
+}
+
+
+//подтверждение редактирования профиля
 function editPopupSubmitHandler(evt) {
   evt.preventDefault();
 
@@ -138,7 +161,7 @@ const clearInput = () => {
   addNewCardForm.reset();
 }
 
-//добавление новой карточки//
+//добавление новой карточки
 const addCardSubmitHandler = (evt) => {
   evt.preventDefault();
   const newCardName = cardNameInput.value;
@@ -149,14 +172,13 @@ const addCardSubmitHandler = (evt) => {
   evt.target.reset();
 }
 
-//навешивание слушателей на кнопки//
-editProfileBtn.addEventListener('click', () => openEditProfilePopup(editProfilePopup))
+//навешивание слушателей на кнопки
+editProfileBtn.addEventListener('click', () => openEditProfilePopup(editProfilePopup));
 addBtn.addEventListener('click', () => openPopup(addPopup));
-
-popupCloseBtns.forEach((button) => {
-  const popup = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popup)); 
-});
 
 editProfileForm.addEventListener('submit', editPopupSubmitHandler);
 addNewCardForm.addEventListener('submit', addCardSubmitHandler);
+
+//обработчик для закрытия по esc
+document.body.addEventListener('keydown', keyHandler);
+
