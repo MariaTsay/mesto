@@ -111,6 +111,8 @@ initialCards.forEach((cardElement) =>
 //открытие любого попапа
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  //обработчик для закрытия по esc
+  document.body.addEventListener('keydown', keyHandler);
 }
 
 //открытие формы редактирования
@@ -123,6 +125,7 @@ function openEditProfilePopup() {
 //закрытие попапа(любого)
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.body.removeEventListener('keydown', keyHandler);
 }
 
 popupCloseBtns.forEach((button) => {
@@ -178,7 +181,3 @@ addBtn.addEventListener('click', () => openPopup(addPopup));
 
 editProfileForm.addEventListener('submit', editPopupSubmitHandler);
 addNewCardForm.addEventListener('submit', addCardSubmitHandler);
-
-//обработчик для закрытия по esc
-document.body.addEventListener('keydown', keyHandler);
-
