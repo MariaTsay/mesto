@@ -6,7 +6,7 @@ const popupForm = document.querySelector('.popup__form');
 
 //переменные для редактирования профиля//
 const editProfilePopup = document.querySelector('.popup_type_edit');
-const editProfileForm = document.forms ['edit-profile'];
+const editProfileForm = document.forms['edit-profile'];
 const editProfileBtn = document.querySelector('.profile__profile-info-edit-button');
 const popupEditCloseBtn = document.querySelector('#edit-close');
 const nameInput = document.querySelector('.popup__text_type_name');
@@ -16,7 +16,7 @@ const profileJob = document.getElementById('profile-job');
 
 //переменные для добавления карточек//
 const addPopup = document.querySelector('.popup_type_add');
-const addNewCardForm = document.forms ['add-place'];
+const addNewCardForm = document.forms['add-place'];
 const addBtn = document.querySelector('.profile__add-button');
 const popupAddCloseBtn = document.querySelector('#edit-close');
 const cardNameInput = document.querySelector('.popup__text_type_place-name');
@@ -130,7 +130,7 @@ function closePopup(popup) {
 
 popupCloseBtns.forEach((button) => {
   const popupCloseBtn = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popupCloseBtn)); 
+  button.addEventListener('click', () => closePopup(popupCloseBtn));
 });
 
 popups.forEach((popup) => {
@@ -138,10 +138,10 @@ popups.forEach((popup) => {
 })
 
 //закрытие по esc
-function keyHandler(evt){
+function keyHandler(evt) {
   if (evt.key === 'Escape') {
     closePopup(document.querySelector('.popup_opened'));
- };
+  };
 }
 
 //подтверждение редактирования профиля
@@ -162,7 +162,7 @@ const addCardSubmitHandler = (evt) => {
   evt.preventDefault();
   const newCardName = cardNameInput.value;
   const newCardLink = cardLinkInput.value;
-  
+
   addCard(cardList, createNewCard(newCardName, newCardLink));
   closePopup(addPopup);
   evt.target.reset();
