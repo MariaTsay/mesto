@@ -144,13 +144,6 @@ function keyHandler(evt){
  };
 }
 
-function overlayHandler(evt){
-  if (evt.target === '.popup') {
-    document.querySelector('.popup_opened');
- };
-}
-
-
 //подтверждение редактирования профиля
 function editPopupSubmitHandler(evt) {
   evt.preventDefault();
