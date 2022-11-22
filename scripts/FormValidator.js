@@ -45,6 +45,7 @@ export class FormValidator {
         this._errorElement.textContent = '';
     }
 
+    //сбос введенных инпутов
     resetValidation() {
         this._toggleButtonState();
   
@@ -53,7 +54,7 @@ export class FormValidator {
         });
     }
   
-    //неактивная кнопка
+    //очистка ошибок
     disableButton() {
         this._buttonElement.classList.add(this._inactiveButtonClass);
         this._buttonElement.disabled = true;
@@ -99,7 +100,6 @@ export class FormValidator {
         this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
       
         this._toggleButtonState();
-        this.resetValidation();
       
         this._inputList.forEach((inputElement) => {
           // каждому полю добавим обработчик события input
