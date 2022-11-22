@@ -116,7 +116,11 @@ const addCardSubmitHandler = (evt) => {
 }
 
 //навешивание слушателей на кнопки
-profileEditBtn.addEventListener('click', () => openEditProfilePopup(profileEditPopup));
+profileEditBtn.addEventListener('click', () => {
+  openEditProfilePopup(profileEditPopup);
+  valProfileForm.resetValidation();
+});
+
 cardAddBtn.addEventListener('click', () => {
   openPopup(cardPopup);
   valCardForm.resetValidation();
