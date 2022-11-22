@@ -31,29 +31,37 @@ export class FormValidator {
     _showInputError(inputElement) {
         this._errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
 
-        inputElement.classList.add('popup__text_type_error');
+        inputElement.classList.add(this._inputErrorClass);
         this._errorElement.textContent = inputElement.validationMessage;
-        this._errorElement.classList.add('popup__error_visible');
+        this._errorElement.classList.add(this._spanErrorClass);
     }
 
     //убирает ошибку
     _hideInputError(inputElement) {
         this._errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
 
-        inputElement.classList.remove('popup__text_type_error');
-        this._errorElement.classList.remove('popup__error_visible');
+        inputElement.classList.remove(this._inputErrorClass);
+        this._errorElement.classList.remove(this._spanErrorClass);
         this._errorElement.textContent = '';
     }
 
+    resetValidation() {
+        this._toggleButtonState();
+  
+        this._inputList.forEach((inputElement) => {
+          this._hideInputError(inputElement);
+        });
+    }
+  
     //неактивная кнопка
     disableButton() {
-        this._buttonElement.classList.add('popup__submit-btn_disabled');
+        this._buttonElement.classList.add(this._inactiveButtonClass);
         this._buttonElement.disabled = true;
     }
 
     //активная кнопка
     _enableButton() {
-        this._buttonElement.classList.remove('popup__submit-btn_disabled');
+        this._buttonElement.classList.remove(this._inactiveButtonClass);
         this._buttonElement.disabled = false;
     }
 
@@ -76,8 +84,6 @@ export class FormValidator {
 
     //проверка валидации инпута
     _checkInputValidity(inputElement) {
-
-
         if (!inputElement.validity.valid) {
             // Если поле не проходит валидацию, покажем ошибку
             this._showInputError(inputElement, inputElement.validationMessage);
@@ -89,10 +95,11 @@ export class FormValidator {
 
     //навешивание слушателей
     _setEventListeners() {
-        this._inputList = Array.from(this._formElement.querySelectorAll('.popup__text'));
-        this._buttonElement = this._formElement.querySelector('.popup__submit-btn');
+        this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
+        this._buttonElement = this._formElement.querySelector(this._submitButtonSelector);
       
         this._toggleButtonState();
+        this.resetValidation();
       
         this._inputList.forEach((inputElement) => {
           // каждому полю добавим обработчик события input
@@ -106,18 +113,7 @@ export class FormValidator {
         });
     }
 
-    enableValidation() {
-        // Найдём все формы с указанным классом в DOM,
-        // сделаем из них массив методом Array.from
-        this.formList = Array.from(document.querySelectorAll('.popup__form'));
-
-        // Переберём полученную коллекцию
-        this.formList.forEach((formElement) => {
-            // Для каждой формы вызовем функцию setEventListeners
-            this._setEventListeners(this._config, formElement);
-        });
- 
-    
+    enableValidation(formElement) {
+        this._setEventListeners(this._config, formElement);
     }
-
 }

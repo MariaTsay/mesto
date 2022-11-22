@@ -1,9 +1,9 @@
-import { initialCards, Card } from './Card.js';
+import { Card } from './Card.js';
 import { config, FormValidator } from './FormValidator.js';
+import { initialCards } from './initialCards.js';
 
 //общие переменные
 const popups = document.querySelectorAll('.popup');
-const popupCloseBtns = document.querySelectorAll('.popup__close');
 
 //переменные для редактирования профиля//
 const profileEditPopup = document.querySelector('.popup_type_edit');
@@ -75,13 +75,16 @@ function closePopup(popup) {
   document.body.removeEventListener('keydown', keyHandler);
 }
 
-popupCloseBtns.forEach((button) => {
-  const popupCloseBtn = button.closest('.popup');
-  button.addEventListener('click', () => closePopup(popupCloseBtn));
-});
-
+//перебор попапов и закрытие их по крестику
 popups.forEach((popup) => {
-  popup.addEventListener('click', (evt) => closePopup(evt.target));
+  popup.addEventListener('mousedown', (evt) => {
+      if (evt.target.classList.contains('popup_opened')) {
+          closePopup(popup)
+      }
+      if (evt.target.classList.contains('popup__close')) {
+        closePopup(popup)
+      }
+  })
 })
 
 //закрытие по esc
@@ -114,7 +117,10 @@ const addCardSubmitHandler = (evt) => {
 
 //навешивание слушателей на кнопки
 profileEditBtn.addEventListener('click', () => openEditProfilePopup(profileEditPopup));
-cardAddBtn.addEventListener('click', () => openPopup(cardPopup));
+cardAddBtn.addEventListener('click', () => {
+  openPopup(cardPopup);
+  valCardForm.resetValidation();
+});
 
 profileEditForm.addEventListener('submit', editPopupSubmitHandler);
 cardForm.addEventListener('submit', addCardSubmitHandler);
@@ -124,17 +130,3 @@ const valProfileForm = new FormValidator(config, profileEditForm);
 valProfileForm.enableValidation();
 const valCardForm = new FormValidator(config, cardForm);
 valCardForm.enableValidation();
-
-//создание экземпляров карточек
-const card1 = new Card('о.Кайо Сомбреро, Венесуэла', 'https://i.pinimg.com/736x/49/81/06/498106c4713ad630d18e3885ca397bca.jpg');
-card1.generateCard();
-const card2 = new Card('Коста-Рика', 'https://c1.wallpaperflare.com/preview/336/846/497/footstep-beach-warm-walking.jpg');
-card2.generateCard();
-const card3 = new Card('Бали', 'https://i.pinimg.com/736x/bf/bb/c5/bfbbc5fb4ec437e7f572768ff8ffd069.jpg');
-card3.generateCard();
-const card4 = new Card('Таиланд', 'https://i.pinimg.com/736x/5b/f4/7e/5bf47e98f38c64aff7f4a1ca4b014137.jpg');
-card4.generateCard();
-const card5 = new Card('Розовый пляж, Багамы', 'https://funart.pro/uploads/posts/2022-08/1661193294_48-funart-pro-p-rozovii-plyazh-bagami-instagram-52.jpg');
-card5.generateCard();
-const card6 = new Card('Мальдивы', 'https://naekvatoremsk.ru/sites/default/files/pbbwkwb55dc.jpg');
-card6.generateCard();
