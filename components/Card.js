@@ -63,7 +63,6 @@ export class Card {
             this._likeCard()
         });
       
-      
         this.cardElementImg.addEventListener('click', () => {
           this._handleCardClick(this._name, this._link)
         });
