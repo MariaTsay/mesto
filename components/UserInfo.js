@@ -8,14 +8,14 @@ export class UserInfo {
 
     getUserInfo() {
         const profileUserInfo = {
-        nameInput: this._name.textContent.trim(),
-        jobInput: this._job.textContent.trim()
+        name: this._name.textContent.trim(),
+        job: this._job.textContent.trim()
         }
         return profileUserInfo;
     }
 
-    setUserInfo() {
-        this._name.textContent = profileUserInfo.nameInput.value;
-        this._job.textContent = profileUserInfo.jobInput.value;
+    setUserInfo(name, job) {
+        this._name.textContent = name;
+        this._job.textContent = job;
     }
 }
