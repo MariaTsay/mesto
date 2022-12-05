@@ -16,6 +16,10 @@ export class Card {
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
         this._getTemplate();
+        this.cardElementName = this.cardTemplate.querySelector(".places__title");
+        this.cardElementImg = this.cardTemplate.querySelector(".places__image");
+        this.deleteBtn = this.cardTemplate.querySelector(".places__delete");
+        this.likeBtn = this.cardTemplate.querySelector(".places__like");
     }
 
     //получение темплейта
@@ -29,12 +33,6 @@ export class Card {
 
     //создание карточки
     generateCard() {
-
-        this.cardElementName = this.cardTemplate.querySelector(".places__title");
-        this.cardElementImg = this.cardTemplate.querySelector(".places__image");
-        this.deleteBtn = this.cardTemplate.querySelector(".places__delete");
-        this.likeBtn = this.cardTemplate.querySelector(".places__like");
-
         this.cardElementName.textContent = this._name;
         this.cardElementImg.src = this._link;
         this.cardElementImg.alt = this._name;
@@ -66,7 +64,6 @@ export class Card {
         this.cardElementImg.addEventListener('click', () => {
           this._handleCardClick(this._name, this._link)
         });
-
     }
 
 }
