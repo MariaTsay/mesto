@@ -1,6 +1,7 @@
 export class Popup {
     constructor(popupSelector) {
         this._popupSelector = popupSelector;
+        this._handleEscClose = this._handleEscClose.bind(this);
     }
 
     openPopup() {
@@ -16,7 +17,7 @@ export class Popup {
 
     _handleEscClose(evt) {
         if (evt.key === 'Escape') {
-            this.closePopup(document.querySelector('.popup_opened'));
+            this.closePopup();
           };
     }
 
