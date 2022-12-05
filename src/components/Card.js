@@ -35,9 +35,9 @@ export class Card {
         this.deleteBtn = this.cardTemplate.querySelector(".places__delete");
         this.likeBtn = this.cardTemplate.querySelector(".places__like");
 
-        this.cardTemplate.querySelector('.places__title').textContent = this._name;
-        this.cardTemplate.querySelector('.places__image').src = this._link;
-        this.cardTemplate.querySelector('.places__image').alt = this._name;
+        this.cardElementName.textContent = this._name;
+        this.cardElementImg.src = this._link;
+        this.cardElementImg.alt = this._name;
 
         this._setEventListeners();
 

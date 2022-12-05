@@ -1,12 +1,12 @@
 import { Popup } from "./Popup.js";
 
 export class PopupWithImage extends Popup {
-    popupSelector;
+    popup;
     name;
     link;
 
-    constructor(popupSelector) {
-        super(popupSelector);
+    constructor(popup) {
+        super(popup);
         this._photoPopup = document.querySelector('.popup_type_photo');
         this._popupFullscreenImg = document.querySelector('.popup__fullscreen-image');
         this._popupFullscrImgCaption = document.querySelector('.popup__description');

@@ -66,8 +66,9 @@ profileForm.setEventListeners();
 //навешивание слушателей на кнопки
 profileEditBtn.addEventListener('click', () => {
   
-  nameInput.value = user.getUserInfo().name;
-  jobInput.value = user.getUserInfo().job;
+  const info = user.getUserInfo();
+  nameInput.value = info.name;
+  jobInput.value = info.job;
 
   profileForm.openPopup();
   valProfileForm.resetValidation();
@@ -79,7 +80,7 @@ const cardPlaceForm = new PopupWithForm(cardPopup, ({cardname, cardlink}) => {
 
     cardsList.addItem(card);
     cardPlaceForm.closePopup();
-    valCardForm.disableButton('popup__submit-btn_disabled', popupSubmitBtn);
+    valCardForm.disableButton();
   }
 );
 cardPlaceForm.setEventListeners();
