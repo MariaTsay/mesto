@@ -1,3 +1,4 @@
+import '../pages/index.css';
 import { Card } from '../components/Card.js';
 import { config, FormValidator } from '../components/FormValidator.js';
 import { initialCards } from '../scripts/initialCards.js';
@@ -72,7 +73,6 @@ profileEditBtn.addEventListener('click', () => {
   valProfileForm.resetValidation();
 });
 
-
 //создание экземпляра класса PopupWithForm для добавления карточки
 const cardPlaceForm = new PopupWithForm(cardPopup, ({cardname, cardlink}) => {
     const card = createNewCard(cardname, cardlink);
@@ -99,11 +99,3 @@ valCardForm.enableValidation();
 //создание экземпляра класса PopupWithImage
 const popupWithImage = new PopupWithImage(photoPopup);
 popupWithImage.setEventListeners();
-
-
-
-
-
-//profileEditForm.addEventListener('submit', editPopupSubmitHandler);
-//cardForm.addEventListener('submit', cardPlaceForm);
-

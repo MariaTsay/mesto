@@ -17,5 +17,4 @@ export class Section {
             this._renderer(item);
         })
     }
-    
 }

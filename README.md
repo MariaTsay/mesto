@@ -14,6 +14,10 @@
 * Сделать форму валидации для всех инпутов;
 * Реализовать закрытие форм по клавише esc и по клику вне формы;
 * Создать отдельные классы Card и FormValidator и перенести код туда;
+* Сохдать отдельные классы Section, Popup, PopupWithForm, PopupWithImage, UserInfo и перенести код туда;
+* Преобразовать класс Card;
+* Создать файл .gitignore;
+* Настроить сборку с помощью Webpack;
 
 ### Используемые технологии в проекте:
 
@@ -26,5 +30,6 @@
 * Создание GitHub Pages;
 * Рефакторинг кода в js;
 * Модули в js: подключение в HTML, export, import;
+* Webpack, Babel, Postcss;
 
 Проект можно посмотреть по [ссылке](https://mariatsay.github.io/mesto/index.html)
