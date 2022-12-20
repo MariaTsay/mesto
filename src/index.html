@@ -17,7 +17,10 @@
 
         <main class="content">
             <section class="profile">
-                <img class="profile__avatar" src="<%=require('./images/profile__avatar.png')%>" alt="аватар Жак-Ив Кусто" />
+                <div class="profile__avatar">
+                    <img class="profile__avatar-pic" src="<%=require('./images/profile__avatar.png')%>" alt="аватар Жак-Ив Кусто" />
+                    <button class="profile__avatar-edit-btn" type="button"></button>
+                </div>
                 <div class="profile__profile-info">
                     <div class="profile__profile-info-container">
                         <h1 class="profile__profile-info-title" id="profile-name">Жак-Ив Кусто
@@ -47,7 +50,10 @@
                 src="https://i.pinimg.com/736x/49/81/06/498106c4713ad630d18e3885ca397bca.jpg" alt="Кайо Сомбреро" />
             <div class="places__text-content">
                 <h2 class="places__title" id="place-name">о.Кайо Сомбреро, Венесуэла</h2>
-                <button class="places__like" type="button"></button>
+                <div class="places__like-container">
+                    <button class="places__like" type="button"></button>
+                    <span class="places__like-counter"></span>
+                </div>
             </div>
         </li>
     </template>
@@ -98,6 +104,33 @@
                         alt="о.Кайо Сомбреро, Венесуэла" />
                     <figcaption class="popup__description">о.Кайо Сомбреро, Венесуэла</figcaption>
                 </figure>
+            </div>
+        </div>
+    </section>
+
+    <section class="popup popup_type_delete">
+        <div class="popup__container">
+            <div class="popup__content">
+                <button class="popup__close" type="button" id="deletecard-close"></button>
+                <form class="popup__form" name="deletecard" id="deletecard-form" novalidate>
+                    <h2 class="popup__title">Вы уверены?</h2>
+                    <button class="popup__submit-btn" type="submit">Да</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="popup popup_type_avatar">
+        <div class="popup__container">
+            <div class="popup__content">
+                <button class="popup__close" type="button" id="avatar-close"></button>
+                <form class="popup__form" name="avatar" id="avatar-form" novalidate>
+                    <h2 class="popup__title">Обновить аватар</h2>
+                    <input class="popup__text popup__text_type_avatar-link" id="avatarlink-input" type="url"
+                        name="avatarlink" placeholder="Ссылка на аватар" required>
+                    <span class="popup__error avatarlink-input-error"></span>
+                    <button class="popup__submit-btn" type="submit">Сохранить</button>
+                </form>
             </div>
         </div>
     </section>

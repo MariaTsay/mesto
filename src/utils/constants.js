@@ -19,8 +19,18 @@ export const cardLinkInput = document.querySelector('.popup__text_type_place-lin
 export const cardListSelector = document.querySelector('.places__list');
 export const popupSubmitBtn = cardForm.querySelector('.popup__submit-btn');
 
-
 //переменные для увеличения фото
 export const photoPopup = document.querySelector('.popup_type_photo');
 export const popupFullscreenImg = photoPopup.querySelector('.popup__fullscreen-image');
 export const popupFullscrImgCaption = photoPopup.querySelector('.popup__description');
+
+//переменные для удаления карточек
+export const cardDeletePopup = document.querySelector('.popup_type_delete');
+export const cardDeleteForm = document.forms['deletecard-form'];
+export const deleteBtn = document.querySelector('.places__delete');
+
+//переменные для редактирования аватара
+export const avatarPopup = document.querySelector('.popup_type_avatar');
+export const avatarEditForm = document.forms['avatar-form'];
+export const avatarEditBtn = document.querySelector('.profile__avatar');
+export const avatarLinkInput = document.querySelector('.popup__text_type_avatar-link');
