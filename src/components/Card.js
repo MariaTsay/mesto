@@ -55,8 +55,10 @@ export class Card {
     }
 
     //лайк-анлайк
-    _likeCard() {
-        this.likeBtn.classList.toggle('places__like_active');
+    _likeCard(cardData) {
+        this._likes = cardData.likes;
+        this._isLikedCard;
+        this.handleLikesCounter();
     }
 
     //счетчик лайков
@@ -65,11 +67,12 @@ export class Card {
         this.likeBtn.classList.toggle('places__like_active');
     }
 
+    //проверка, чей лайк
     _isLiked() {
         return this._likes.some(like => like._id === this._creatorId);
     }
 
-    //проверка, мой ли это лайк
+    
     _isLikedCard() {
         if(this._isLiked()) {
             this.likeBtn.classList.toggle('places__like_active'); 
@@ -84,7 +87,6 @@ export class Card {
         });
         this.likeBtn.addEventListener("click", () => {
             this._handleLikeClick(this, !this._isLiked());
-            this.handleLikesCounter(this._id);
         });
       
         this.cardElementImg.addEventListener('click', () => {
