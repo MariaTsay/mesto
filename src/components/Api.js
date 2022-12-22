@@ -48,8 +48,8 @@ export class Api {
       return this._handleResponse(res);
     }
 
-    async deleteCard(_id) {
-      const res = await fetch(`${this._baseUrl}/cards/${_id}`, {
+    async deleteCard(id) {
+      const res = await fetch(`${this._baseUrl}/cards/${id}`, {
         method: 'DELETE',
         headers: this._headers
       })

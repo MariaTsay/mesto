@@ -1,7 +1,6 @@
 import '../pages/index.css';
 import { Card } from '../components/Card.js';
 import { config, FormValidator } from '../components/FormValidator.js';
-import { initialCards } from '../scripts/initialCards.js';
 import { Section } from '../components/Section.js';
 import { PopupWithForm } from '../components/PopupWithForm.js';
 import { PopupWithImage } from '../components/PopupWithImage.js';
@@ -127,23 +126,23 @@ const createNewCard = (data) => {
     '.template-card_type_default', 
     handleCardClick,
 
-    async (card) => {
-      popupWithConfirmation.openPopup(card)
-    },
-
     async () => {
-      try {
-        api.likeCard(data._id).then(data => {
-          console.log(data._id);
-        })
-      } catch(err) {
-        console.log(err); // выведем ошибку в консоль
-      }
+      popupWithConfirmation.openPopup(() => {
+        api.deleteCard(card._id);
+        card.removeCard();
+        popupWithConfirmation.closePopup();
+        
+      })
     },
 
-    
-
-    )
+    async (card, isLiked) => {
+      const res = isLiked
+      ? await api.likeCard(card._id)
+      : await api.dislikeCard(card._id)
+      
+      card._likeCard(res)
+    }
+  )
   
     const cardElement = card.generateCard();
 
@@ -159,20 +158,12 @@ const cardsList = new Section({
   }
 }, cardListSelector)
 
-cardsList.renderItems(initialCards);
-
-const popupWithConfirmation = new PopupWithConfirmation(cardDeletePopup, 
-  async (cardId) => {
-    try {
-      await api.deleteCard(cardId).then(data => {
-        card.removeCard(data);
-        popupWithConfirmation.closePopup();
-      })
-      
-    } catch(err) {
-    console.log(err); // выведем ошибку в консоль
-  }
+api.getInitialCards().then(data => {
+  cardsList.renderItems(data);
 })
+
+
+const popupWithConfirmation = new PopupWithConfirmation(cardDeletePopup)
 popupWithConfirmation.setEventListeners();
 
 //клик по картинке для увеличения фото

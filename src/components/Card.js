@@ -1,20 +1,9 @@
 export class Card {
-    name;
-    link;
-    templateSelector;
-    handleCardClick;
-    cardTemplate;
-    cardElementName;
-    cardElementImg;
-    deleteBtn;
-    likeBtn;
-    
-
     constructor(data, templateSelector, handleCardClick, onRemove, handleLikeClick) {
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
-        this._cardId = data._id;
+        this._id = data.id;
         this._userId = data.userId;
         this._creatorId = data.creatorId;
         this._templateSelector = templateSelector;
@@ -25,9 +14,9 @@ export class Card {
         this.deleteBtn = this.cardTemplate.querySelector(".places__delete");
         this.likeBtn = this.cardTemplate.querySelector(".places__like");
         this._onRemove = onRemove;
-        this.handleRemove = this.handleRemove.bind(this);
         this._likesCounter = this.cardTemplate.querySelector(".places__like-counter");
         this._handleLikeClick = handleLikeClick;
+
     }
 
     //получение темплейта
@@ -46,6 +35,8 @@ export class Card {
         this.cardElementImg.alt = this._name;
         
         this.checkDeleteBtn();
+        
+        
         this._setEventListeners();
 
         return this.cardTemplate;
@@ -54,11 +45,6 @@ export class Card {
     //удаление карточки
     removeCard() {
         this.cardTemplate.remove();
-    }
-
-    //подтверждение удаления карточки
-    handleRemove() {
-        this._onRemove(this)
     }
 
     //проверка, могу ли я удалить карточку
@@ -74,16 +60,19 @@ export class Card {
     }
 
     //счетчик лайков
-    handleLikesCounter(data) {
-        this.likes = data.likes
+    handleLikesCounter() {
         this._likesCounter.textContent = this._likes.length;
         this.likeBtn.classList.toggle('places__like_active');
     }
 
+    _isLiked() {
+        return this._likes.some(like => like._id === this._creatorId);
+    }
+
     //проверка, мой ли это лайк
     _isLikedCard() {
-        if(this._likes.some(like => like._id === this._creatorId)) {
-            this.likeBtn.classList.add('places__like_active'); 
+        if(this._isLiked()) {
+            this.likeBtn.classList.toggle('places__like_active'); 
         } 
         
     }
@@ -91,11 +80,11 @@ export class Card {
     //навешивание слушателей
     _setEventListeners() {
         this.deleteBtn.addEventListener("click", () => {
-            this.checkDeleteBtn();
-            this._onRemove(this);
+            this._onRemove(this._id);
         });
         this.likeBtn.addEventListener("click", () => {
-            this.handleLikesCounter()
+            this._handleLikeClick(this, !this._isLiked());
+            this.handleLikesCounter(this._id);
         });
       
         this.cardElementImg.addEventListener('click', () => {
