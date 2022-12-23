@@ -40,7 +40,7 @@ const apiOptions = {
 //создание экземпляра класса Api
 const api = new Api(apiOptions);
 api.getUserInfo().then((user) => {
-  userId = user;
+  userId = user._id;
 
   api.getInitialCards().then((cards) => {
     cards.forEach(createNewCard);
