@@ -35,9 +35,8 @@ export class Card {
         this.cardElementImg.alt = this._name;
         
         this.checkDeleteBtn();
-
         
-        this.handleLikesCounter();
+        this._handleLikesCounter();
         this._isLikedCard();
 
         this._setEventListeners();
@@ -58,16 +57,16 @@ export class Card {
     }
 
     //лайк-анлайк
-    _likeCard(data) {
+    likeCard(data) {
         this._likes = data.likes;
         this._isLikedCard();
-        this.handleLikesCounter();
+        this._handleLikesCounter();
     }
 
     //счетчик лайков
-    handleLikesCounter() {
+    _handleLikesCounter() {
         this._likesCounter.textContent = this._likes.length;
-        this._isLikedCard();
+        
     }
 
     //проверка, чей лайк
@@ -77,11 +76,7 @@ export class Card {
 
     //проверка состояния лайка
     _isLikedCard() {
-        if(this._isLiked()) {
-            this.likeBtn.classList.add('places__like_active'); 
-        } else {
-            this.likeBtn.classList.remove('places__like_active'); 
-        }
+        this.likeBtn.classList.toggle('places__like_active', this._isLiked());
     }
 
     //навешивание слушателей

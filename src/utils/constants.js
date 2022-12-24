@@ -34,3 +34,12 @@ export const avatarPopup = document.querySelector('.popup_type_avatar');
 export const avatarEditForm = document.forms['avatar-form'];
 export const avatarEditBtn = document.querySelector('.profile__avatar');
 export const avatarLinkInput = document.querySelector('.popup__text_type_avatar-link');
+
+export const config = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__text',
+    submitButtonSelector: '.popup__submit-btn',
+    inactiveButtonClass: 'popup__submit-btn_disabled',
+    inputErrorClass: 'popup__text_type_error',
+    spanErrorClass: 'popup__error_visible'
+};

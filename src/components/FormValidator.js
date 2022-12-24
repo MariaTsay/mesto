@@ -1,11 +1,4 @@
-export const config = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__text',
-    submitButtonSelector: '.popup__submit-btn',
-    inactiveButtonClass: 'popup__submit-btn_disabled',
-    inputErrorClass: 'popup__text_type_error',
-    spanErrorClass: 'popup__error_visible'
-};
+
 
 export class FormValidator {
     config;
@@ -69,7 +62,7 @@ export class FormValidator {
     //переключатель кнопки
     _toggleButtonState() {
         // проверка на валидность каждого поля инпут
-        if (this._hasInvalidInput(this._inputList)) {
+        if (this._hasInvalidInput()) {
             this.disableButton(this._config, this.buttonElement);
         } else {
             this._enableButton(this._config, this.buttonElement);
@@ -113,7 +106,7 @@ export class FormValidator {
         });
     }
 
-    enableValidation(formElement) {
-        this._setEventListeners(this._config, formElement);
+    enableValidation() {
+        this._setEventListeners();
     }
 }
