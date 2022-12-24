@@ -72,7 +72,7 @@ export class Card {
 
     //проверка, чей лайк
     _isLiked() {
-        return this._likes.some(like => like._id === this._creatorId);
+        return this._likes.some(like => like._id === this._userId);
     }
 
     //проверка состояния лайка
@@ -83,7 +83,6 @@ export class Card {
             this.likeBtn.classList.remove('places__like_active'); 
         }
     }
-
 
     //навешивание слушателей
     _setEventListeners() {
@@ -98,5 +97,4 @@ export class Card {
           this._handleCardClick(this._name, this._link)
         });
     }
-
 }

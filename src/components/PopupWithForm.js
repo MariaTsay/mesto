@@ -26,7 +26,6 @@ export class PopupWithForm extends Popup {
             this._submitButton.textContent = this._submitButtonTextContent;
         }
     }
-
     
     setEventListeners() {
         super.setEventListeners();

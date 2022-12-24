@@ -16,11 +16,8 @@ import {
   cardForm,
   cardAddBtn,
   cardListSelector,
-  popupSubmitBtn,
   photoPopup,
   cardDeletePopup,
-  cardDeleteForm,
-  deleteBtn,
   avatarPopup,
   avatarEditForm,
   avatarEditBtn
@@ -39,12 +36,17 @@ const apiOptions = {
 
 //создание экземпляра класса Api
 const api = new Api(apiOptions);
-api.getUserInfo().then((user) => {
-  userId = user._id;
+api.getUserInfo().then((userData) => {
+  userId = userData._id;
+  user.setUserInfo(userData);
+  user.setUserAvatar(userData);
 
   api.getInitialCards().then((cards) => {
-    cards.forEach(createNewCard);
+    cardsList.renderItems(cards);
   })
+  .catch((err) => {
+    console.log(err); // выведем ошибку в консоль
+  }); 
 })
 
 //создание экземпляра класса UserInfo
@@ -121,7 +123,8 @@ const createNewCard = (data) => {
       link: data.link, 
       likes: data.likes,
       id: data._id, 
-      userId: data.userId, 
+      userId, 
+      creatorId: data.owner._id
     }, 
     '.template-card_type_default', 
     handleCardClick,
@@ -158,11 +161,7 @@ const cardsList = new Section({
   }
 }, cardListSelector)
 
-api.getInitialCards().then(data => {
-  cardsList.renderItems(data);
-})
-
-
+//создание экземпляра класса PopupWithConfirmation
 const popupWithConfirmation = new PopupWithConfirmation(cardDeletePopup)
 popupWithConfirmation.setEventListeners();
 
@@ -174,7 +173,6 @@ function handleCardClick(name, link) {
 //создание экземпляра класса PopupWithImage
 const popupWithImage = new PopupWithImage(photoPopup);
 popupWithImage.setEventListeners();
-
 
 //навешивание слушателей на кнопки
 profileEditBtn.addEventListener('click', () => {

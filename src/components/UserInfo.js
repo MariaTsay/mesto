@@ -20,12 +20,13 @@ export class UserInfo {
         return profileUserInfo;
     }
 
-    setUserInfo(data) {
-        this._name.textContent = data.name;
-        this._job.textContent = data.about;
+    setUserInfo(userData) {
+        this._name.textContent = userData.name;
+        this._job.textContent = userData.about;
     }
 
-    setUserAvatar(data) {
-        this._avatar.src = data.avatar;
+    setUserAvatar(userData) {
+        this._avatar.src = userData.avatar;
+        this._avatar.alt = userData.name;
     }
 }
